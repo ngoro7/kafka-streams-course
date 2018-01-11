@@ -26,7 +26,7 @@ public class WordCountApp {
         KStream<String, String> textLines = builder.stream("word-count-input");
         KTable<String, Long> wordCounts = textLines
                 // 2 - map values to lowercase
-                .mapValues(textLine -> textLine.toLowerCase())
+                .mapValues(String::toLowerCase)
                 // can be alternatively written as:
                 // .mapValues(String::toLowerCase)
                 // 3 - flatmap values split by space
